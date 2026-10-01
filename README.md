@@ -130,7 +130,7 @@ Relacionamento: **1 Tutor possui N Pets**.
 
 ## 🔗 Endpoints
 
-Base URL: `http://localhost:5080/api/v1`
+Base URL: `http://localhost:7080/api/v1`
 
 ### Tutores
 
@@ -201,34 +201,3 @@ Todas as respostas de erro seguem o padrão **ProblemDetails** (RFC 9457):
   "instance": "/api/v1/tutores/999"
 }
 ```
-
----
-
-## 📸 Evidências de teste
-
-Prints realizados no Swagger/Postman, disponíveis em [`docs/prints`](docs/prints).
-
-### Tutores
-| Teste | Print |
-|-------|-------|
-| GET lista de tutores – 200 | ![](docs/prints/01-get-tutores.png) |
-| GET tutor por id – 200 | ![](docs/prints/02-get-tutor-id.png) |
-| GET tutor inexistente – 404 | ![](docs/prints/03-get-tutor-404.png) |
-| GET pets do tutor – 200 | ![](docs/prints/04-get-tutor-pets.png) |
-| POST tutor – 201 | ![](docs/prints/05-post-tutor-201.png) |
-| POST tutor inválido – 400 | ![](docs/prints/06-post-tutor-400.png) |
-| POST e-mail duplicado – 409 | ![](docs/prints/07-post-tutor-409.png) |
-| PUT tutor – 204 | ![](docs/prints/08-put-tutor-204.png) |
-| DELETE tutor – 204 | ![](docs/prints/09-delete-tutor-204.png) |
-
-### Pets
-| Teste | Print |
-|-------|-------|
-| GET lista de pets – 200 | ![](docs/prints/10-get-pets.png) |
-| GET pets por espécie – 200 | ![](docs/prints/11-get-pets-filtro.png) |
-| GET pet por id – 200 | ![](docs/prints/12-get-pet-id.png) |
-| POST pet – 201 | ![](docs/prints/13-post-pet-201.png) |
-| POST pet com tutor inexistente – 400 | ![](docs/prints/14-post-pet-400.png) |
-| PUT pet – 204 | ![](docs/prints/15-put-pet-204.png) |
-| DELETE pet – 204 | ![](docs/prints/16-delete-pet-204.png) |
-| DELETE pet inexistente – 404 | ![](docs/prints/17-delete-pet-404.png) |
