@@ -1,0 +1,125 @@
+@baseUrl = http://localhost:5080/api/v1
+
+### ===================== TUTORES =====================
+
+### Listar tutores
+GET {{baseUrl}}/tutores
+
+### Criar tutor (201)
+POST {{baseUrl}}/tutores
+Content-Type: application/json
+
+{
+  "nome": "Mariana Souza",
+  "cpf": "12345678901",
+  "email": "mariana.souza@email.com",
+  "telefone": "(11) 98765-4321"
+}
+
+### Buscar tutor por Id (200 / 404)
+GET {{baseUrl}}/tutores/1
+
+### Listar pets do tutor
+GET {{baseUrl}}/tutores/1/pets
+
+### Atualizar tutor (200)
+PUT {{baseUrl}}/tutores/1
+Content-Type: application/json
+
+{
+  "nome": "Mariana Souza Lima",
+  "cpf": "12345678901",
+  "email": "mariana.lima@email.com",
+  "telefone": "(11) 91234-5678"
+}
+
+### Criar tutor inválido (400)
+POST {{baseUrl}}/tutores
+Content-Type: application/json
+
+{
+  "nome": "A",
+  "cpf": "123",
+  "email": "email-invalido",
+  "telefone": ""
+}
+
+### Remover tutor (204 / 409 se tiver pets)
+DELETE {{baseUrl}}/tutores/1
+
+### ===================== PETS =====================
+
+### Listar pets (filtro opcional ?especie=Cachorro)
+GET {{baseUrl}}/pets
+
+### Criar pet (201)
+POST {{baseUrl}}/pets
+Content-Type: application/json
+
+{
+  "nome": "Thor",
+  "especie": "Cachorro",
+  "raca": "Golden Retriever",
+  "dataNascimento": "2021-05-10",
+  "pesoKg": 28.5,
+  "tutorId": 1
+}
+
+### Buscar pet por Id
+GET {{baseUrl}}/pets/1
+
+### Histórico de consultas do pet
+GET {{baseUrl}}/pets/1/consultas
+
+### Atualizar pet
+PUT {{baseUrl}}/pets/1
+Content-Type: application/json
+
+{
+  "nome": "Thor",
+  "especie": "Cachorro",
+  "raca": "Golden Retriever",
+  "dataNascimento": "2021-05-10",
+  "pesoKg": 30.2,
+  "tutorId": 1
+}
+
+### Remover pet (204)
+DELETE {{baseUrl}}/pets/1
+
+### ===================== CONSULTAS =====================
+
+### Listar consultas (filtro opcional ?status=Agendada)
+GET {{baseUrl}}/consultas
+
+### Agendar consulta (201)
+POST {{baseUrl}}/consultas
+Content-Type: application/json
+
+{
+  "petId": 1,
+  "dataHora": "2026-12-15T14:30:00",
+  "veterinario": "Dr. Ricardo Lima",
+  "motivo": "Vacinação anual",
+  "valor": 150.00,
+  "status": "Agendada"
+}
+
+### Buscar consulta por Id
+GET {{baseUrl}}/consultas/1
+
+### Atualizar consulta
+PUT {{baseUrl}}/consultas/1
+Content-Type: application/json
+
+{
+  "petId": 1,
+  "dataHora": "2026-12-16T10:00:00",
+  "veterinario": "Dr. Ricardo Lima",
+  "motivo": "Vacinação anual + check-up",
+  "valor": 220.00,
+  "status": "Agendada"
+}
+
+### Remover consulta (204)
+DELETE {{baseUrl}}/consultas/1
